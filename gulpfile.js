@@ -1,4 +1,9 @@
 const gulp = require('gulp');
+const handlebars = require('gulp-handlebars');
+const rollup = require('gulp-better-rollup');
+const babel = require('rollup-plugin-babel');
+const resolve = require('rollup-plugin-node-resolve');
+const commonjs = require('rollup-plugin-commonjs');
 const browserSync = require('browser-sync').create();
 
 //--- BROWSER SYNC INIT

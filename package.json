@@ -24,14 +24,22 @@
     },
     "homepage": "https://github.com/wongdarjo/letter-move#readme",
     "dependencies": {
-        "browser-sync": "^2.26.14",
-        "gulp": "^4.0.2",
-        "postcss": "^8.2.8",
-        "autoprefixer": "^10.2.5",
-        "eslint": "^7.22.0"
-    },
-    "devDependencies": {
         "animejs": "^3.2.1",
         "tailwindcss": "^2.0.4"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.13.10",
+        "autoprefixer": "^10.2.5",
+        "browser-sync": "^2.26.14",
+        "eslint": "^7.22.0",
+        "gulp": "^4.0.2",
+        "gulp-better-rollup": "^4.0.1",
+        "gulp-handlebars": "^5.0.2",
+        "handlebars": "^4.7.7",
+        "postcss": "^8.2.8",
+        "rollup": "^2.42.1",
+        "rollup-plugin-babel": "^4.4.0",
+        "rollup-plugin-commonjs": "^10.1.0",
+        "rollup-plugin-node-resolve": "^5.2.0"
     }
 }
