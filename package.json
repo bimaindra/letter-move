@@ -28,6 +28,7 @@
     "gulp": "^4.0.2"
   },
   "devDependencies": {
+    "animejs": "^3.2.1",
     "autoprefixer": "^10.2.5",
     "eslint": "^7.22.0",
     "postcss": "^8.2.8",
