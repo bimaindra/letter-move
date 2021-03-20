@@ -1,5 +1,5 @@
 // tailwind.config.js
-const plugin = require('tailwindcss/plugin')
+const plugin = require('tailwindcss/plugin');
 
 module.exports = {
     prefix: 'wd-',
@@ -63,9 +63,9 @@ module.exports = {
                         padding: '0',
                     },
                 },
-            }
+            };
 
-            addUtilities(container, ['responsive'])
+            addUtilities(container, ['responsive']);
         }),
     ],
-}
+};

@@ -1,5 +1,5 @@
-const gulp = require('gulp')
-const browserSync = require('browser-sync').create()
+const gulp = require('gulp');
+const browserSync = require('browser-sync').create();
 
 //--- BROWSER SYNC INIT
 gulp.task('browser-sync', (done) => {
@@ -7,27 +7,27 @@ gulp.task('browser-sync', (done) => {
         server: {
             baseDir: './dist',
         },
-    })
-    done()
-})
+    });
+    done();
+});
 
 //--- BROWSER SYNC RELOAD
 gulp.task('browser-reload', (done) => {
-    browserSync.reload()
-    done()
-})
+    browserSync.reload();
+    done();
+});
 
 //--- MOVE IMAGE FILES
 gulp.task('image', () => {
     return gulp
         .src(['./assets/images/**/*.*'])
-        .pipe(gulp.dest('./dist/assets/images'))
-})
+        .pipe(gulp.dest('./dist/assets/images'));
+});
 
 //--- MOVE HTML FILES
 gulp.task('html', () => {
-    return gulp.src(['./public/*.html']).pipe(gulp.dest('./dist'))
-})
+    return gulp.src(['./public/*.html']).pipe(gulp.dest('./dist'));
+});
 
 //--- SERVING FILES
 gulp.task(
@@ -36,9 +36,9 @@ gulp.task(
         gulp.watch(
             ['./public/*.html'],
             gulp.series('html', 'image', 'browser-reload')
-        )
+        );
     })
-)
+);
 
 //--- DEFAULT TASK
-gulp.task('default', gulp.series('serve'))
+gulp.task('default', gulp.series('serve'));
