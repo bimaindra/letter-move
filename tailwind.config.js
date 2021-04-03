@@ -3,7 +3,15 @@ const plugin = require('tailwindcss/plugin');
 
 module.exports = {
     prefix: 'wd-',
-    purge: ['./src/**/*.html'],
+    purge: {
+        enabled: true,
+        preserveHtmlElements: true,
+        content: [
+            './src/public/**/*.html', 
+            './src/public/**/*.hbs', 
+            './src/assets/js/**/*.js'
+        ],
+    },
     darkMode: 'class', // or 'media' or 'class'
     theme: {
         screens: {
@@ -32,6 +40,18 @@ module.exports = {
             yellow2: '#e1b12c',
             purple1: '#9c88ff',
             purple2: '#8c7ae6',
+        },
+        fontFamily: {
+            'base': 'Nunito Sans, sans-serif',
+            'secondary': 'Roboto, sans-serif',
+        },
+        fontWeight: {
+            light: 300,
+            regular: 400,
+            medium: 500,
+            semibold: 600,
+            bold: 700,
+            black: 900,
         },
         extend: {},
     },
