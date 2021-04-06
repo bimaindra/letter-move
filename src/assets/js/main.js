@@ -1,0 +1,2 @@
+import animejs from 'animejs';
+
