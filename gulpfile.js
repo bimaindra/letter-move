@@ -182,7 +182,7 @@ gulp.task('copy-html', () => {
 
 
 //-- COMPILE
-gulp.task('compile', gulp.series('clean', gulp.parallel('compile-css', 'compile-js', 'copy-js-hbs', 'copy-html'), 'compile-hbs'));
+gulp.task('compile', gulp.series('clean', gulp.parallel('compile-css', 'compile-js', 'copy-js-hbs', 'copy-html', 'compile-hbs')));
 
 
 //-- WATCH FILE
@@ -190,7 +190,7 @@ gulp.task('watch-files', () => {
     gulp.watch(`${dir.source.css}/**/*.css`, gulp.series(gulp.parallel('compile-css'), 'browser-reload'));
     gulp.watch(`${dir.source.js}/**/*.js`, gulp.series(gulp.parallel('compile-js'), 'browser-reload'));
     gulp.watch(`${dir.source.public}/pages/*.html`, gulp.series(gulp.parallel('compile-css', 'copy-html'), 'browser-reload'));
-    gulp.watch(`${dir.source.public}/**/*.hbs`, gulp.series(gulp.parallel('compile-css'), 'compile-hbs', 'browser-reload'));
+    gulp.watch(`${dir.source.public}/**/*.hbs`, gulp.series(gulp.parallel('compile-css', 'compile-hbs'), 'browser-reload'));
     console.log("\t" + logSymbols.info,"Watching for changes...");
 });
 
@@ -203,7 +203,7 @@ gulp.task('build-done', (done) => {
 
 
 //--- SERVING FILES
-gulp.task('serve', gulp.series('clean', gulp.parallel('compile-css', 'compile-js', 'copy-js-hbs', 'copy-html'), 'compile-hbs', 'browser-sync', 'watch-files'));
+gulp.task('serve', gulp.series('clean', gulp.parallel('compile-css', 'compile-js', 'copy-js-hbs', 'copy-html', 'compile-hbs'), 'browser-sync', 'watch-files'));
 
 
 //--- DEFAULT TASK
