@@ -4,28 +4,31 @@
 *   URL : bimaindra.com                                          
 **/
 
-//-- GENERAL
+//--- GENERAL
+const { series, parallel, src, dest, watch } = require('gulp');
 const path = require('path');
-const gulp = require('gulp');
 const del = require('del');
+const merge = require('merge-stream');
 const logSymbols = require('log-symbols');
 const browserSync = require('browser-sync').create();
 const handlebars = require('gulp-handlebars');
 const wrap = require('gulp-wrap');
 const declare = require('gulp-declare');
+const rename = require('gulp-rename');
 const concat = require('gulp-concat');
-const merge = require('merge-stream');
-const noop = require("gulp-noop");
+const noop = require('gulp-noop');
+const uglify = require('gulp-uglify');
 const sourcemaps = require('gulp-sourcemaps');
 
-//-- JS
+//--- JS
 const rollup = require('rollup');
 const babel = require('rollup-plugin-babel');
 const resolve = require('rollup-plugin-node-resolve');
 const commonjs = require('rollup-plugin-commonjs');
 const replace = require('rollup-plugin-replace');
+const { terser } = require('rollup-plugin-terser');
 
-//-- CSS
+//--- CSS
 const sass = require('gulp-sass'); //-- if needed
 const postcss = require('gulp-postcss');
 const postcssimport = require('postcss-import');
@@ -34,11 +37,11 @@ const tailwindcss = require('tailwindcss');
 const autoprefixer = require('autoprefixer');
 const cleanCss = require('gulp-clean-css');
 
-//-- CONFIG
+//--- CONFIG
 const tailwindConfig = require('./tailwind.config');
 
 
-//-- ENV
+//--- ENV
 const isDebug = ((process.env.NODE_ENV || 'development').trim().toLowerCase() !== 'production');
 
 
@@ -68,39 +71,50 @@ const dir = {
     },
 };
 
-
-//--- BROWSER SYNC INIT
-gulp.task('browser-sync', (done) => {
+//--- BROWSER-SYNC INIT
+function browserInit(done) {
     browserSync.init({
         server: {
             baseDir: dir.build.base,
         },
     });
+
     done();
-});
+};
 
-
-//--- BROWSER SYNC RELOAD
-gulp.task('browser-reload', (done) => {
+//--- BROWSER-SYNC RELOAD
+function browserReload(done) {
     console.log(logSymbols.info,'Reloading BrowserSync...');
     browserSync.reload();
-    done();
-});
 
+    done();
+};
 
 //-- CLEANUP BUILD FOLDER
-gulp.task('clean', () => {
+function cleanBuild() {
     console.log(logSymbols.info,'Clean up build folder...');
-    return del([root.build])
-})
+    return del([root.build]);
+};
 
+//-- FINISHED COMPILE MESSAGE
+function finishedCompileMessage(done) {
+    console.log(logSymbols.success,'Finished compiling!');
+    done();
+};
+
+//--- COPY JS HBS RUNTIME
+function hbsRuntime() {
+    return src(`${root.npm}/handlebars/dist/handlebars.runtime.js`)
+        .pipe(rename('handlebars.js'))
+        .pipe(isDebug ? noop() : uglify())
+        .pipe(dest(dir.build.js));
+};
 
 //--- COMPILE HBS TEMPLATE
-// example source: https://github.com/lazd/gulp-handlebars/tree/master/examples/partials
-gulp.task('compile-hbs', () => {
+function hbsCompile() {
     // Assume all partials start with an underscore
     // You could also put them in a folder such as source/templates/partials/*.hbs
-    let partials = gulp.src([`${dir.source.public}/partials/**/*.hbs`])
+    let partials = src([`${dir.source.public}/partials/**/*.hbs`])
         .pipe(handlebars())
         .pipe(wrap('Handlebars.registerPartial(<%= processPartialName(file.relative) %>, Handlebars.template(<%= contents %>));', {}, {
             imports: {
@@ -112,7 +126,7 @@ gulp.task('compile-hbs', () => {
             }
         }));
   
-    let templates = gulp.src(`${dir.source.public}/templates/**/*.hbs`)
+    let templates = src(`${dir.source.public}/templates/**/*.hbs`)
         .pipe(handlebars())
         .pipe(wrap('Handlebars.template(<%= contents %>)'))
         .pipe(declare({
@@ -123,12 +137,13 @@ gulp.task('compile-hbs', () => {
     // Output both the partials and the templates as build/js/templates.js
     return merge(partials, templates)
         .pipe(concat('templates.js'))
-        .pipe(gulp.dest(dir.build.js));
-});
+        .pipe(isDebug ? noop() : uglify())
+        .pipe(dest(dir.build.js));
+};
 
-//-- COMPILE CSS
-gulp.task('compile-css', () => {
-    return gulp.src(`${dir.source.css}/*.css`)
+//--- COMPILE CSS
+function cssCompile() {
+    return src(`${dir.source.css}/*.css`)
         .pipe(!isDebug ? noop() : sourcemaps.init())
         .pipe(postcss([
             postcssimport,
@@ -139,12 +154,11 @@ gulp.task('compile-css', () => {
         .pipe(concat({ path: 'style.css'}))
         .pipe(isDebug ? noop() : cleanCss({compatibility: 'ie8'}))
         .pipe(!isDebug ? noop() : sourcemaps.write('./maps'))
-        .pipe(gulp.dest(dir.build.css));
-});
+        .pipe(dest(dir.build.css));
+};
 
-
-//-- COMPILE JS
-gulp.task('compile-js', () => {
+//--- COMPILE JS
+function jsCompile() {
     return rollup.rollup({
         input: `${dir.source.js}/main.js`,
         plugins: [
@@ -156,55 +170,47 @@ gulp.task('compile-js', () => {
                 'process.env.NODE_ENV': JSON.stringify('production')
             }),
             resolve(),
+            isDebug ? noop() : terser(),
         ]
     }).then(bundle => {
         return bundle.write({
             file: `${dir.build.js}/main.js`,
             format: 'es',
-            sourcemap: isDebug ? true : false
+            sourcemap: isDebug ? true : false,
         })
     })
-});
+};
 
+//--- COPY HTML
+function htmlCopy() {
+    return src(`${dir.source.public}/pages/*.html`)
+        .pipe(dest(dir.build.base));
+};
 
-//-- COPY JS HBS
-gulp.task('copy-js-hbs', () => {
-    return gulp.src(`${root.npm}/handlebars/dist/handlebars.runtime.js`)
-        .pipe(gulp.dest(dir.build.js));
-});
+//--- WATCHING FILES CHANGES
+function watchFiles() {
+    watch(`${dir.source.css}/**/*.css`, series(parallel(cssCompile), finishedCompileMessage, browserReload));
+    watch(`${dir.source.js}/**/*.js`, series(parallel(jsCompile), finishedCompileMessage, browserReload));
+    watch(`${dir.source.public}/pages/*.html`, series(parallel(cssCompile, htmlCopy), finishedCompileMessage, browserReload));
+    watch(`${dir.source.public}/**/*.hbs`, series(parallel(cssCompile), hbsCompile, finishedCompileMessage, browserReload));
+    console.log('\t' + logSymbols.info,'Watching for changes...');
+};
 
+//--- COMPILE FILES
+exports.build = series(
+    cleanBuild, 
+    parallel(
+        cssCompile, 
+        jsCompile,
+        hbsRuntime,
+        htmlCopy
+    ),
+    hbsCompile,
+    finishedCompileMessage
+);
 
-//-- COPY HTML
-gulp.task('copy-html', () => {
-    return gulp.src(`${dir.source.public}/pages/*.html`)
-        .pipe(gulp.dest(dir.build.base));
-});
-
-
-//-- COMPILE
-gulp.task('compile', gulp.series('clean', gulp.parallel('compile-css', 'compile-js', 'copy-js-hbs', 'copy-html', 'compile-hbs')));
-
-
-//-- WATCH FILE
-gulp.task('watch-files', () => {
-    gulp.watch(`${dir.source.css}/**/*.css`, gulp.series(gulp.parallel('compile-css'), 'browser-reload'));
-    gulp.watch(`${dir.source.js}/**/*.js`, gulp.series(gulp.parallel('compile-js'), 'browser-reload'));
-    gulp.watch(`${dir.source.public}/pages/*.html`, gulp.series(gulp.parallel('compile-css', 'copy-html'), 'browser-reload'));
-    gulp.watch(`${dir.source.public}/**/*.hbs`, gulp.series(gulp.parallel('compile-css', 'compile-hbs'), 'browser-reload'));
-    console.log("\t" + logSymbols.info,"Watching for changes...");
-});
-
-
-//-- FINISH COMPILE
-gulp.task('build-done', (done) => {
-    console.log(logSymbols.success,'All is compiled!');
-    done()
-});
-
-
-//--- SERVING FILES
-gulp.task('serve', gulp.series('clean', gulp.parallel('compile-css', 'compile-js', 'copy-js-hbs', 'copy-html', 'compile-hbs'), 'browser-sync', 'watch-files'));
-
+//--- SERVE TASK W/ PROD ENVIRONMENT
+exports.serveprod = series(this.build, browserInit, watchFiles);
 
 //--- DEFAULT TASK
-gulp.task('default', gulp.series('compile', 'build-done'));
+exports.default = isDebug ? series(this.build, browserInit, watchFiles) : series(this.build);
