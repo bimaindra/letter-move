@@ -1,2 +1,2 @@
 # letter-move
-Simple moving letter using animejs
+> Simple moving letter using animejs
