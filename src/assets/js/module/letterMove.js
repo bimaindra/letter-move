@@ -1,3 +1,10 @@
+/**
+ * file: letterMove.js
+ * scripted: bimaindramulya@gmail.com
+ * --------------------------------------------
+ * WONGDARJO
+ */
+
 import anime from 'animejs/lib/anime.es.js';
 
 export function letterMove() {
