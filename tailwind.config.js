@@ -69,7 +69,6 @@ module.exports = {
             }
         },
     },
-    variants: {},
     plugins: [
         plugin(function ({ addUtilities }) {
             const container = {
