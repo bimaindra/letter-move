@@ -15,6 +15,7 @@ export function letterMove() {
 
         if(element.dataset.animate == 1) {
             const text = element.querySelector('.js-animate-text');
+            
             //-- wrap every word
             text.innerHTML = text.textContent.replace(/\S/g, '<span class="js-wrapper-word wd-inline-block wd-leading-tight">$&</span>');
             const wrappedWord = element.querySelectorAll('.js-wrapper-word');
@@ -35,6 +36,7 @@ export function letterMove() {
 
         if(element.dataset.animate == 2) {
             const text = element.querySelector('.js-animate-text');
+            
             //-- wrap every word
             text.innerHTML = text.textContent.replace(/\S/g, '<span class="js-wrapper-word wd-inline-block wd-leading-tight">$&</span>');
             const wrappedWord = element.querySelectorAll('.js-wrapper-word');
@@ -57,6 +59,7 @@ export function letterMove() {
 
         if(element.dataset.animate == 3) {
             const text = element.querySelector('.js-animate-text');
+            
             //-- wrap every word
             text.innerHTML = text.textContent.replace(/\S/g, '<span class="js-wrapper-word wd-inline-block wd-leading-tight">$&</span>');
             const wrappedWord = element.querySelectorAll('.js-wrapper-word');
@@ -77,6 +80,7 @@ export function letterMove() {
 
         if(element.dataset.animate == 4) {
             const text = element.querySelector('.js-animate-text');
+            
             //-- wrap every word
             text.innerHTML = text.textContent.replace(/\S/g, '<span class="js-wrapper-word wd-inline-block wd-leading-tight wd-origin-top-left">$&</span>');
             const wrappedWord = element.querySelectorAll('.js-wrapper-word');
@@ -96,6 +100,7 @@ export function letterMove() {
 
         if(element.dataset.animate == 5) {
             const text = element.querySelector('.js-animate-text');
+            
             //-- wrap every word
             text.innerHTML = text.textContent.replace(/\S/g, '<span class="js-wrapper-word wd-inline-block wd-leading-tight wd-origin-bottom">$&</span>');
             const wrappedWord = element.querySelectorAll('.js-wrapper-word');
@@ -116,9 +121,11 @@ export function letterMove() {
 
         if(element.dataset.animate == 6) {
             const text = element.querySelector('.js-animate-text');
+            
             //-- wrap every word
             text.innerHTML = text.textContent.replace(/([^\x00-\x80]|\w)/g, '<span class="js-wrapper-word wd-inline-block wd-leading-tight">$&</span>');
             const wrappedWord = element.querySelectorAll('.js-wrapper-word');
+            
             //-- line
             const line = element.querySelector('.js-animate-line');
 
