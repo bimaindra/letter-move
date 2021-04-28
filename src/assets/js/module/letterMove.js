@@ -14,6 +14,7 @@ export function letterMove() {
     item.forEach(element => {
 
         if(element.dataset.animate == 1) {
+            //-- select text
             const text = element.querySelector('.js-animate-text');
             
             //-- wrap every word
@@ -35,6 +36,7 @@ export function letterMove() {
         };
 
         if(element.dataset.animate == 2) {
+            //-- select text
             const text = element.querySelector('.js-animate-text');
             
             //-- wrap every word
@@ -58,6 +60,7 @@ export function letterMove() {
         };
 
         if(element.dataset.animate == 3) {
+            //-- select text
             const text = element.querySelector('.js-animate-text');
             
             //-- wrap every word
@@ -79,6 +82,7 @@ export function letterMove() {
         };
 
         if(element.dataset.animate == 4) {
+            //-- select text
             const text = element.querySelector('.js-animate-text');
             
             //-- wrap every word
@@ -99,6 +103,7 @@ export function letterMove() {
         };
 
         if(element.dataset.animate == 5) {
+            //-- select text
             const text = element.querySelector('.js-animate-text');
             
             //-- wrap every word
@@ -120,6 +125,7 @@ export function letterMove() {
         };
 
         if(element.dataset.animate == 6) {
+            //-- select text
             const text = element.querySelector('.js-animate-text');
             
             //-- wrap every word
