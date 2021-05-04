@@ -13,13 +13,14 @@ export function letterMove() {
 
     item.forEach(element => {
 
+        const text = element.querySelector('.js-animate-text');
+        const wrappedWord = element.querySelectorAll('.js-wrapper-word');
+        const button = element.querySelector('.js-click');
+
         if(element.dataset.animate == 1) {
-            //-- select text
-            const text = element.querySelector('.js-animate-text');
             
             //-- wrap every word
             text.innerHTML = text.textContent.replace(/\S/g, '<span class="js-wrapper-word wd-inline-block wd-leading-tight">$&</span>');
-            const wrappedWord = element.querySelectorAll('.js-wrapper-word');
 
             //-- execute animate!
             const animeIt = anime.timeline({
@@ -36,12 +37,9 @@ export function letterMove() {
         };
 
         if(element.dataset.animate == 2) {
-            //-- select text
-            const text = element.querySelector('.js-animate-text');
             
             //-- wrap every word
             text.innerHTML = text.textContent.replace(/\S/g, '<span class="js-wrapper-word wd-inline-block wd-leading-tight">$&</span>');
-            const wrappedWord = element.querySelectorAll('.js-wrapper-word');
 
             //-- execute animate!
             const animeIt = anime.timeline({
@@ -60,12 +58,9 @@ export function letterMove() {
         };
 
         if(element.dataset.animate == 3) {
-            //-- select text
-            const text = element.querySelector('.js-animate-text');
             
             //-- wrap every word
             text.innerHTML = text.textContent.replace(/\S/g, '<span class="js-wrapper-word wd-inline-block wd-leading-tight">$&</span>');
-            const wrappedWord = element.querySelectorAll('.js-wrapper-word');
 
             //-- execute animate!
             const animeIt = anime.timeline({
@@ -82,12 +77,9 @@ export function letterMove() {
         };
 
         if(element.dataset.animate == 4) {
-            //-- select text
-            const text = element.querySelector('.js-animate-text');
             
             //-- wrap every word
             text.innerHTML = text.textContent.replace(/\S/g, '<span class="js-wrapper-word wd-inline-block wd-leading-tight wd-origin-top-left">$&</span>');
-            const wrappedWord = element.querySelectorAll('.js-wrapper-word');
 
             //-- execute animate!
             const animeIt = anime.timeline({
@@ -103,12 +95,9 @@ export function letterMove() {
         };
 
         if(element.dataset.animate == 5) {
-            //-- select text
-            const text = element.querySelector('.js-animate-text');
             
             //-- wrap every word
             text.innerHTML = text.textContent.replace(/\S/g, '<span class="js-wrapper-word wd-inline-block wd-leading-tight wd-origin-bottom">$&</span>');
-            const wrappedWord = element.querySelectorAll('.js-wrapper-word');
 
             //-- execute animate!
             const animeIt = anime.timeline({
@@ -125,12 +114,9 @@ export function letterMove() {
         };
 
         if(element.dataset.animate == 6) {
-            //-- select text
-            const text = element.querySelector('.js-animate-text');
             
             //-- wrap every word
             text.innerHTML = text.textContent.replace(/([^\x00-\x80]|\w)/g, '<span class="js-wrapper-word wd-inline-block wd-leading-tight">$&</span>');
-            const wrappedWord = element.querySelectorAll('.js-wrapper-word');
             
             //-- line
             const line = element.querySelector('.js-animate-line');
