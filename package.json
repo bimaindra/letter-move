@@ -19,7 +19,8 @@
         "js",
         "gulp",
         "tailwind",
-        "handlebars"
+        "handlebars",
+        "animejs"
     ],
     "author": "bimaindra",
     "license": "ISC",
