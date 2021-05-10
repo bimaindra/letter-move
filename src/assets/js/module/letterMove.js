@@ -1,7 +1,7 @@
 /* eslint-disable no-control-regex */
 /**
  * file: LetterMove.js
- * scripted: bimaindramulya@gmail.com
+ * scripted by: Bima Indra | bimaindramulya@gmail.com
  * --------------------------------------------
  * WONGDARJO
  */
