@@ -190,6 +190,11 @@ function jsCompile() {
     }));
 }
 
+// COPY IMAGES
+function imagesCopy() {
+  return src(`${dir.source.images}/**/*`).pipe(dest(dir.build.images));
+}
+
 // COPY HTML
 function htmlCopy() {
   return src(`${dir.source.public}/pages/*.html`).pipe(dest(dir.build.base));
@@ -199,6 +204,7 @@ function htmlCopy() {
 function watchFiles() {
   watch(`${dir.source.css}/**/*.css`, series(parallel(cssCompile), finishedCompileMessage, browserReload));
   watch(`${dir.source.js}/**/*.js`, series(parallel(jsCompile), finishedCompileMessage, browserReload));
+  watch(`${dir.source.images}/**/*`, series(parallel(imagesCopy), finishedCompileMessage, browserReload));
   watch(`${dir.source.public}/pages/*.html`, series(parallel(cssCompile, htmlCopy), finishedCompileMessage, browserReload));
   watch(`${dir.source.public}/**/*.hbs`, series(parallel(cssCompile), hbsCompile, finishedCompileMessage, browserReload));
   console.log(`\t${logSymbols.info}`, 'Watching for changes...');
@@ -207,7 +213,7 @@ function watchFiles() {
 // COMPILE FILES
 exports.build = series(
   cleanBuild,
-  parallel(cssCompile, jsCompile, hbsRuntime, htmlCopy),
+  parallel(cssCompile, jsCompile, imagesCopy, hbsRuntime, htmlCopy),
   hbsCompile,
   finishedCompileMessage,
 );
