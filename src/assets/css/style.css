@@ -8,23 +8,14 @@
 }
 
 .wd-layout-ram {
-    @apply wd-grid;
-    grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+    @apply wd-grid wd-gap-1;
+    grid-template-columns: repeat(auto-fit, minmax(calc(100% - 4px), 1fr));
 
     @screen md {
-        grid-template-columns: repeat(auto-fit, minmax(50%, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(calc(50% - 4px), 1fr));
     }
 
     @screen lg {
-        grid-template-columns: repeat(auto-fit, minmax(33.33%, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(calc(33.33% - 4px), 1fr));
     }
-}
-
-.js-animate-line {
-    transform-origin: 0 50%;
-}
-
-.js-click {
-    filter: blur(16px);
-    -webkit-filter: blur(16px);
 }

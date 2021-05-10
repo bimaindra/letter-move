@@ -5,7 +5,7 @@
  * WONGDARJO
  */
 
-import { letterMove } from './module/letterMove';
+import LetterMove from './module/LetterMove';
 
-//-- Load module
-letterMove();
+// Load module
+LetterMove();
