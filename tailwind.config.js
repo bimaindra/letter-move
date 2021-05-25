@@ -1,24 +1,20 @@
-// tailwind.config.js
+// -- tailwind.config.js
 const plugin = require('tailwindcss/plugin');
 
 module.exports = {
   prefix: 'wd-',
   mode: 'jit',
   purge: {
-    content: [
-      './src/public/**/*.html',
-      './src/public/**/*.hbs',
-      './src/assets/js/**/*.js',
-    ],
+    content: ['./src/public/**/*.html', './src/public/**/*.hbs', './src/assets/js/**/*.js']
   },
-  darkMode: 'class', // or 'media' or 'class'
+  darkMode: 'class', // -- or 'media' or 'class'
   theme: {
     screens: {
-      sm: '640px', // mobile
-      md: '768px', // tablet small
-      lg: '992px', // tablet large
-      xl: '1200px', // laptop
-      xxl: '1600px', // desktop large
+      sm: '640px', // -- mobile
+      md: '768px', // -- tablet small
+      lg: '992px', // -- tablet large
+      xl: '1200px', // -- laptop
+      xxl: '1600px' // -- desktop large
     },
     colors: {
       black: '#000000',
@@ -38,11 +34,11 @@ module.exports = {
       yellow1: '#fbc531',
       yellow2: '#e1b12c',
       purple1: '#9c88ff',
-      purple2: '#8c7ae6',
+      purple2: '#8c7ae6'
     },
     fontFamily: {
       base: 'Nunito Sans, sans-serif',
-      secondary: 'Roboto, sans-serif',
+      secondary: 'Roboto, sans-serif'
     },
     fontWeight: {
       light: 300,
@@ -50,11 +46,11 @@ module.exports = {
       medium: 500,
       semibold: 600,
       bold: 700,
-      black: 900,
+      black: 900
     },
     extend: {
       borderWidth: {
-        1: '1px',
+        1: '1px'
       },
       zIndex: {
         '-10': -10,
@@ -64,9 +60,9 @@ module.exports = {
         '-25': -25,
         '-50': -50,
         '-75': -75,
-        '-100': 100,
-      },
-    },
+        '-100': 100
+      }
+    }
   },
   plugins: [
     plugin(({ addUtilities }) => {
@@ -76,28 +72,28 @@ module.exports = {
           padding: '0 1rem',
           '@screen sm': {
             maxWidth: '100%',
-            padding: '0 1rem',
+            padding: '0 1rem'
           },
           '@screen md': {
             maxWidth: '688px',
-            padding: '0',
+            padding: '0'
           },
           '@screen lg': {
             maxWidth: '864px',
-            padding: '0',
+            padding: '0'
           },
           '@screen xl': {
             maxWidth: '1140px',
-            padding: '0',
+            padding: '0'
           },
           '@screen xxl': {
             maxWidth: '1350px',
-            padding: '0',
-          },
-        },
+            padding: '0'
+          }
+        }
       };
 
       addUtilities(container, ['responsive']);
-    }),
-  ],
+    })
+  ]
 };
