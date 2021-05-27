@@ -19,10 +19,7 @@ const LetterMove = () => {
 
     if (elementNumber === 1) {
       // Wrap every word
-      text.innerHTML = text.textContent.replace(
-        /\S/g,
-        '<span class="js-wrapper-word wd-inline-block wd-leading-tight">$&</span>',
-      );
+      text.innerHTML = text.textContent.replace(/\S/g, '<span class="js-wrapper-word wd-inline-block wd-leading-tight">$&</span>');
 
       // Get every word
       const wrappedWord = element.querySelectorAll('.js-wrapper-word');
@@ -30,26 +27,29 @@ const LetterMove = () => {
       // Execute animate!
       const init = () => {
         const animeInstance = anime.timeline({
-          loop: false,
+          loop: false
         });
 
-        animeInstance.add({
-          targets: button,
-          opacity: 0,
-          duration: 500,
-          easing: 'easeOutExpo',
-        }).add({
-          targets: wrappedWord,
-          translateY: ['3.75rem', 0],
-          translateZ: 0,
-          duration: 1000,
-          delay: (el, i) => 50 * i,
-        }).add({
-          targets: button,
-          opacity: 1,
-          duration: 500,
-          easing: 'easeOutExpo',
-        });
+        animeInstance
+          .add({
+            targets: button,
+            opacity: 0,
+            duration: 500,
+            easing: 'easeOutExpo'
+          })
+          .add({
+            targets: wrappedWord,
+            translateY: ['3.75rem', 0],
+            translateZ: 0,
+            duration: 1000,
+            delay: (el, i) => 50 * i
+          })
+          .add({
+            targets: button,
+            opacity: 1,
+            duration: 500,
+            easing: 'easeOutExpo'
+          });
       };
 
       init();
@@ -62,10 +62,7 @@ const LetterMove = () => {
 
     if (elementNumber === 2) {
       // Wrap every word
-      text.innerHTML = text.textContent.replace(
-        /\S/g,
-        '<span class="js-wrapper-word wd-inline-block wd-leading-tight">$&</span>',
-      );
+      text.innerHTML = text.textContent.replace(/\S/g, '<span class="js-wrapper-word wd-inline-block wd-leading-tight">$&</span>');
 
       // Get every word
       const wrappedWord = element.querySelectorAll('.js-wrapper-word');
@@ -73,28 +70,31 @@ const LetterMove = () => {
       // Execute animate!
       const init = () => {
         const animeInstance = anime.timeline({
-          loop: false,
+          loop: false
         });
 
-        animeInstance.add({
-          targets: button,
-          opacity: 0,
-          duration: 500,
-          easing: 'easeOutExpo',
-        }).add({
-          targets: wrappedWord,
-          scale: [5, 1],
-          opacity: [0, 1],
-          translateZ: 0,
-          easing: 'easeOutExpo',
-          duration: 1000,
-          delay: (el, i) => 70 * i,
-        }).add({
-          targets: button,
-          opacity: 1,
-          duration: 500,
-          easing: 'easeOutExpo',
-        });
+        animeInstance
+          .add({
+            targets: button,
+            opacity: 0,
+            duration: 500,
+            easing: 'easeOutExpo'
+          })
+          .add({
+            targets: wrappedWord,
+            scale: [5, 1],
+            opacity: [0, 1],
+            translateZ: 0,
+            easing: 'easeOutExpo',
+            duration: 1000,
+            delay: (el, i) => 70 * i
+          })
+          .add({
+            targets: button,
+            opacity: 1,
+            duration: 500,
+            easing: 'easeOutExpo'
+          });
       };
 
       init();
@@ -107,10 +107,7 @@ const LetterMove = () => {
 
     if (elementNumber === 3) {
       // Wrap every word
-      text.innerHTML = text.textContent.replace(
-        /\S/g,
-        '<span class="js-wrapper-word wd-inline-block wd-leading-tight">$&</span>',
-      );
+      text.innerHTML = text.textContent.replace(/\S/g, '<span class="js-wrapper-word wd-inline-block wd-leading-tight">$&</span>');
 
       // Get every word
       const wrappedWord = element.querySelectorAll('.js-wrapper-word');
@@ -118,26 +115,29 @@ const LetterMove = () => {
       // Execute animate!
       const init = () => {
         const animeInstance = anime.timeline({
-          loop: false,
+          loop: false
         });
 
-        animeInstance.add({
-          targets: button,
-          opacity: 0,
-          duration: 500,
-          easing: 'easeOutExpo',
-        }).add({
-          targets: wrappedWord,
-          translateY: [-200, 0],
-          easing: 'easeOutExpo',
-          duration: 1000,
-          delay: (el, i) => 30 * i,
-        }).add({
-          targets: button,
-          opacity: 1,
-          duration: 500,
-          easing: 'easeOutExpo',
-        });
+        animeInstance
+          .add({
+            targets: button,
+            opacity: 0,
+            duration: 500,
+            easing: 'easeOutExpo'
+          })
+          .add({
+            targets: wrappedWord,
+            translateY: [-200, 0],
+            easing: 'easeOutExpo',
+            duration: 1000,
+            delay: (el, i) => 30 * i
+          })
+          .add({
+            targets: button,
+            opacity: 1,
+            duration: 500,
+            easing: 'easeOutExpo'
+          });
       };
 
       init();
@@ -152,7 +152,7 @@ const LetterMove = () => {
       // Wrap every word
       text.innerHTML = text.textContent.replace(
         /\S/g,
-        '<span class="js-wrapper-word wd-inline-block wd-leading-tight wd-origin-top-left">$&</span>',
+        '<span class="js-wrapper-word wd-inline-block wd-leading-tight wd-origin-top-left">$&</span>'
       );
 
       // Get every word
@@ -161,25 +161,28 @@ const LetterMove = () => {
       // Execute animate!
       const init = () => {
         const animeInstance = anime.timeline({
-          loop: false,
+          loop: false
         });
 
-        animeInstance.add({
-          targets: button,
-          opacity: 0,
-          duration: 500,
-          easing: 'easeOutExpo',
-        }).add({
-          targets: wrappedWord,
-          rotateY: [-90, 0],
-          duration: 1000,
-          delay: (el, i) => 45 * i,
-        }).add({
-          targets: button,
-          opacity: 1,
-          duration: 500,
-          easing: 'easeOutExpo',
-        });
+        animeInstance
+          .add({
+            targets: button,
+            opacity: 0,
+            duration: 500,
+            easing: 'easeOutExpo'
+          })
+          .add({
+            targets: wrappedWord,
+            rotateY: [-90, 0],
+            duration: 1000,
+            delay: (el, i) => 45 * i
+          })
+          .add({
+            targets: button,
+            opacity: 1,
+            duration: 500,
+            easing: 'easeOutExpo'
+          });
       };
 
       init();
@@ -194,7 +197,7 @@ const LetterMove = () => {
       // Wrap every word
       text.innerHTML = text.textContent.replace(
         /\S/g,
-        '<span class="js-wrapper-word wd-inline-block wd-leading-tight wd-origin-bottom">$&</span>',
+        '<span class="js-wrapper-word wd-inline-block wd-leading-tight wd-origin-bottom">$&</span>'
       );
 
       // Get every word
@@ -203,26 +206,29 @@ const LetterMove = () => {
       // Execute animate!
       const init = () => {
         const animeInstance = anime.timeline({
-          loop: false,
+          loop: false
         });
 
-        animeInstance.add({
-          targets: button,
-          opacity: 0,
-          duration: 500,
-          easing: 'easeOutExpo',
-        }).add({
-          targets: wrappedWord,
-          scale: [0, 1],
-          duration: 1000,
-          elasticity: 600,
-          delay: (el, i) => 45 * (i + 1),
-        }).add({
-          targets: button,
-          opacity: 1,
-          duration: 500,
-          easing: 'easeOutExpo',
-        });
+        animeInstance
+          .add({
+            targets: button,
+            opacity: 0,
+            duration: 500,
+            easing: 'easeOutExpo'
+          })
+          .add({
+            targets: wrappedWord,
+            scale: [0, 1],
+            duration: 1000,
+            elasticity: 600,
+            delay: (el, i) => 45 * (i + 1)
+          })
+          .add({
+            targets: button,
+            opacity: 1,
+            duration: 500,
+            easing: 'easeOutExpo'
+          });
       };
 
       init();
@@ -237,7 +243,7 @@ const LetterMove = () => {
       // Wrap every word
       text.innerHTML = text.textContent.replace(
         /([^\x00-\x80]|\w)/g,
-        '<span class="js-wrapper-word wd-inline-block wd-leading-tight">$&</span>',
+        '<span class="js-wrapper-word wd-inline-block wd-leading-tight">$&</span>'
       );
 
       // Get every word
@@ -249,27 +255,30 @@ const LetterMove = () => {
       // Execute animate!
       const init = () => {
         const animeInstance = anime.timeline({
-          loop: false,
+          loop: false
         });
 
-        animeInstance.add({
-          targets: button,
-          opacity: 0,
-          duration: 500,
-          easing: 'easeOutExpo',
-        }).add({
-          targets: wrappedWord,
-          opacity: [0, 1],
-          easing: 'easeOutExpo',
-          duration: 1000,
-          offset: '-=775',
-          delay: (el, i) => 72 * (i + 1),
-        }).add({
-          targets: button,
-          opacity: 1,
-          duration: 500,
-          easing: 'easeOutExpo',
-        });
+        animeInstance
+          .add({
+            targets: button,
+            opacity: 0,
+            duration: 500,
+            easing: 'easeOutExpo'
+          })
+          .add({
+            targets: wrappedWord,
+            opacity: [0, 1],
+            easing: 'easeOutExpo',
+            duration: 1000,
+            offset: '-=775',
+            delay: (el, i) => 72 * (i + 1)
+          })
+          .add({
+            targets: button,
+            opacity: 1,
+            duration: 500,
+            easing: 'easeOutExpo'
+          });
       };
 
       init();
