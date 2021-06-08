@@ -1,59 +1,94 @@
-<div class="wd-l-main wd-min-h-screen">   
-    {{> header}}
+<script>
+  var context = { "card": [ { "color": "wd-bg-red2", "text": "Hello World!", }, { "color": "wd-bg-green2", "text": "How are you?", }, { "color": "wd-bg-blue2", "text": "Good morning!", }, { "color": "wd-bg-yellow2", "text": "Awesome!", }, { "color":
+  "wd-bg-purple2", "text": "See you later!", }, { "color": "wd-bg-navy2", "text": "I am Bima Indra", }, ] }
+</script>
 
-    <main class="wd-layout-ram">
-        <figure class="wd-relative wd-overflow-hidden wd-py-4 wd-px-4 wd-grid wd-place-items-center wd-text-grey1 wd-bg-red2">
-            <div class="group wd-relative wd-inline-block wd-overflow-hidden" data-animate="1">
-                <span class="wd-font-primary wd-font-bold wd-tracking-tighter wd-leading-tight wd-text-xl sm:wd-text-2xl md:wd-text-3xl xl:wd-text-5xl wd-inline-block wd-overflow-hidden js-animate-text">Hello World!</span>
-            </div>
-            <a href="#" class="js-click group wd-bg-dark1 wd-py-4 wd-px-4 wd-grid wd-absolute wd-top-0 wd-left-0 wd-z-10 wd-text-xl sm:wd-text-3xl md:wd-text-5xl wd-w-full wd-h-full">
-                <span class="wd-transform-gpu wd-transition-transform hover:wd-shadow hover:wd-scale-125 wd-grid wd-place-items-center">Hit me!</span>
-            </a>
-        </figure>
-        <figure class="wd-relative wd-overflow-hidden wd-py-4 wd-px-4 wd-grid wd-place-items-center wd-text-grey1 wd-bg-green2">
-            <div class="group wd-relative wd-inline-block wd-overflow-hidden" data-animate="2">
-                <span class="wd-font-primary wd-font-bold wd-tracking-tighter wd-leading-tight wd-text-xl sm:wd-text-2xl md:wd-text-3xl xl:wd-text-5xl wd-overflow-hidden js-animate-text">How are you?</span>
-            </div>
-            <a href="#" class="js-click group wd-bg-dark1 wd-py-4 wd-px-4 wd-grid wd-absolute wd-top-0 wd-left-0 wd-z-10 wd-text-xl sm:wd-text-3xl md:wd-text-5xl wd-w-full wd-h-full">
-                <span class="wd-transform-gpu wd-transition-transform hover:wd-shadow hover:wd-scale-125 wd-grid wd-place-items-center">Hit me!</span>
-            </a>
-        </figure>
-        <figure class="wd-relative wd-overflow-hidden wd-py-4 wd-px-4 wd-grid wd-place-items-center wd-text-grey1 wd-bg-blue2">
-            <div class="group wd-relative wd-inline-block wd-overflow-hidden" data-animate="3">
-                <span class="wd-font-primary wd-font-bold wd-tracking-tighter wd-leading-tight wd-text-xl sm:wd-text-2xl md:wd-text-3xl xl:wd-text-5xl wd-overflow-hidden js-animate-text">Good morning!</span>
-            </div>
-            <a href="#" class="js-click group wd-bg-dark1 wd-py-4 wd-px-4 wd-grid wd-absolute wd-top-0 wd-left-0 wd-z-10 wd-text-xl sm:wd-text-3xl md:wd-text-5xl wd-w-full wd-h-full">
-                <span class="wd-transform-gpu wd-transition-transform hover:wd-shadow hover:wd-scale-125 wd-grid wd-place-items-center">Hit me!</span>
-            </a>
-        </figure>
-        <figure class="wd-relative wd-overflow-hidden wd-py-4 wd-px-4 wd-grid wd-place-items-center wd-text-grey1 wd-bg-yellow2">
-            <div class="group wd-relative wd-inline-block wd-overflow-hidden" data-animate="4">
-                <span class="wd-font-primary wd-font-bold wd-tracking-tighter wd-leading-tight wd-text-xl sm:wd-text-2xl md:wd-text-3xl xl:wd-text-5xl wd-overflow-hidden js-animate-text">Awesome!</span>
-            </div>
-            <a href="#" class="js-click group wd-bg-dark1 wd-py-4 wd-px-4 wd-grid wd-absolute wd-top-0 wd-left-0 wd-z-10 wd-text-xl sm:wd-text-3xl md:wd-text-5xl wd-w-full wd-h-full">
-                <span class="wd-transform-gpu wd-transition-transform hover:wd-shadow hover:wd-scale-125 wd-grid wd-place-items-center">Hit me!</span>
-            </a>
-        </figure>
-        <figure class="wd-relative wd-overflow-hidden wd-py-4 wd-px-4 wd-grid wd-place-items-center wd-text-grey1 wd-bg-purple2">
-            <div class="group wd-relative wd-inline-block wd-overflow-hidden" data-animate="5">
-                <span class="wd-font-primary wd-font-bold wd-tracking-tighter wd-leading-tight wd-text-xl sm:wd-text-2xl md:wd-text-3xl xl:wd-text-5xl wd-overflow-hidden js-animate-text">See you later!</span>
-            </div>
-            <a href="#" class="js-click group wd-bg-dark1 wd-py-4 wd-px-4 wd-grid wd-absolute wd-top-0 wd-left-0 wd-z-10 wd-text-xl sm:wd-text-3xl md:wd-text-5xl wd-w-full wd-h-full">
-                <span class="wd-transform-gpu wd-transition-transform hover:wd-shadow hover:wd-scale-125 wd-grid wd-place-items-center">Hit me!</span>
-            </a>
-        </figure>
-        <figure class="wd-relative wd-overflow-hidden wd-py-4 wd-px-4 wd-grid wd-place-items-center wd-text-grey1 wd-bg-navy2">
-            <div class="group wd-relative wd-inline-block wd-overflow-hidden" data-animate="6">
-                {{!-- line 1 --}}
-                {{!-- <span class="wd-absolute wd-left-0 wd-top-0 wd-h-full wd-m-auto wd-w-1 wd-opacity-0 wd-bg-white js-animate-line"></span> --}}
-                {{!-- text --}}
-                <span class="wd-font-primary wd-font-bold wd-tracking-tighter wd-leading-tight wd-text-xl sm:wd-text-2xl md:wd-text-3xl xl:wd-text-5xl wd-overflow-hidden js-animate-text">I am Bima Indra</span>
-            </div>
-            <a href="#" class="js-click group wd-bg-dark1 wd-py-4 wd-px-4 wd-grid wd-absolute wd-top-0 wd-left-0 wd-z-10 wd-text-xl sm:wd-text-3xl md:wd-text-5xl wd-w-full wd-h-full">
-                <span class="wd-transform-gpu wd-transition-transform hover:wd-shadow hover:wd-scale-125 wd-grid wd-place-items-center">Hit me!</span>
-            </a>
-        </figure>
-    </main>
+<div class='wd-l-main wd-min-h-screen'>
+  {{> header}}
+  <main class='wd-layout-ram'>
+    <figure class='wd-relative wd-overflow-hidden wd-py-4 wd-px-4 wd-grid wd-place-items-center wd-text-grey1 wd-bg-red2'>
+      <div class='group wd-relative wd-inline-block wd-overflow-hidden' data-animate='1'>
+        <span class='wd-font-primary wd-font-bold wd-tracking-tighter wd-leading-tight wd-text-xl sm:wd-text-2xl md:wd-text-3xl xl:wd-text-5xl wd-inline-block wd-overflow-hidden js-animate-text'>
+          Hello World!
+        </span>
+      </div>
+      <a href='#' class='js-click group wd-bg-dark1 wd-py-4 wd-px-4 wd-grid wd-absolute wd-top-0 wd-left-0 wd-z-10 wd-text-xl sm:wd-text-3xl md:wd-text-5xl wd-w-full wd-h-full'>
+        <span class='wd-transform-gpu wd-transition-transform hover:wd-shadow hover:wd-scale-125 wd-grid wd-place-items-center'>
+          Hit me!
+        </span>
+      </a>
+    </figure>
+    <figure class='wd-relative wd-overflow-hidden wd-py-4 wd-px-4 wd-grid wd-place-items-center wd-text-grey1 wd-bg-green2'>
+      <div class='group wd-relative wd-inline-block wd-overflow-hidden' data-animate='2'>
+        <span class='wd-font-primary wd-font-bold wd-tracking-tighter wd-leading-tight wd-text-xl sm:wd-text-2xl md:wd-text-3xl xl:wd-text-5xl wd-inline-block wd-overflow-hidden js-animate-text'>
+          How are you?
+        </span>
+      </div>
+      <a href='#' class='js-click group wd-bg-dark1 wd-py-4 wd-px-4 wd-grid wd-absolute wd-top-0 wd-left-0 wd-z-10 wd-text-xl sm:wd-text-3xl md:wd-text-5xl wd-w-full wd-h-full'>
+        <span class='wd-transform-gpu wd-transition-transform hover:wd-shadow hover:wd-scale-125 wd-grid wd-place-items-center'>
+          Hit me!
+        </span>
+      </a>
+    </figure>
+    <figure class='wd-relative wd-overflow-hidden wd-py-4 wd-px-4 wd-grid wd-place-items-center wd-text-grey1 wd-bg-blue2'>
+      <div class='group wd-relative wd-inline-block wd-overflow-hidden' data-animate='3'>
+        <span class='wd-font-primary wd-font-bold wd-tracking-tighter wd-leading-tight wd-text-xl sm:wd-text-2xl md:wd-text-3xl xl:wd-text-5xl wd-inline-block wd-overflow-hidden js-animate-text'>
+          Good morning!
+        </span>
+      </div>
+      <a href='#' class='js-click group wd-bg-dark1 wd-py-4 wd-px-4 wd-grid wd-absolute wd-top-0 wd-left-0 wd-z-10 wd-text-xl sm:wd-text-3xl md:wd-text-5xl wd-w-full wd-h-full'>
+        <span class='wd-transform-gpu wd-transition-transform hover:wd-shadow hover:wd-scale-125 wd-grid wd-place-items-center'>
+          Hit me!
+        </span>
+      </a>
+    </figure>
+    <figure class='wd-relative wd-overflow-hidden wd-py-4 wd-px-4 wd-grid wd-place-items-center wd-text-grey1 wd-bg-yellow2'>
+      <div class='group wd-relative wd-inline-block wd-overflow-hidden' data-animate='4'>
+        <span class='wd-font-primary wd-font-bold wd-tracking-tighter wd-leading-tight wd-text-xl sm:wd-text-2xl md:wd-text-3xl xl:wd-text-5xl wd-inline-block wd-overflow-hidden js-animate-text'>
+          Awesome!
+        </span>
+      </div>
+      <a href='#' class='js-click group wd-bg-dark1 wd-py-4 wd-px-4 wd-grid wd-absolute wd-top-0 wd-left-0 wd-z-10 wd-text-xl sm:wd-text-3xl md:wd-text-5xl wd-w-full wd-h-full'>
+        <span class='wd-transform-gpu wd-transition-transform hover:wd-shadow hover:wd-scale-125 wd-grid wd-place-items-center'>
+          Hit me!
+        </span>
+      </a>
+    </figure>
+    <figure class='wd-relative wd-overflow-hidden wd-py-4 wd-px-4 wd-grid wd-place-items-center wd-text-grey1 wd-bg-purple2'>
+      <div class='group wd-relative wd-inline-block wd-overflow-hidden' data-animate='5'>
+        <span class='wd-font-primary wd-font-bold wd-tracking-tighter wd-leading-tight wd-text-xl sm:wd-text-2xl md:wd-text-3xl xl:wd-text-5xl wd-inline-block wd-overflow-hidden js-animate-text'>
+          See you later!
+        </span>
+      </div>
+      <a href='#' class='js-click group wd-bg-dark1 wd-py-4 wd-px-4 wd-grid wd-absolute wd-top-0 wd-left-0 wd-z-10 wd-text-xl sm:wd-text-3xl md:wd-text-5xl wd-w-full wd-h-full'>
+        <span class='wd-transform-gpu wd-transition-transform hover:wd-shadow hover:wd-scale-125 wd-grid wd-place-items-center'>
+          Hit me!
+        </span>
+      </a>
+    </figure>
+    <figure class='wd-relative wd-overflow-hidden wd-py-4 wd-px-4 wd-grid wd-place-items-center wd-text-grey1 wd-bg-navy2'>
+      <div class='group wd-relative wd-inline-block wd-overflow-hidden' data-animate='6'>
+        <span class='wd-font-primary wd-font-bold wd-tracking-tighter wd-leading-tight wd-text-xl sm:wd-text-2xl md:wd-text-3xl xl:wd-text-5xl wd-inline-block wd-overflow-hidden js-animate-text'>
+          I am Bima Indra
+        </span>
+      </div>
+      <a href='#' class='js-click group wd-bg-dark1 wd-py-4 wd-px-4 wd-grid wd-absolute wd-top-0 wd-left-0 wd-z-10 wd-text-xl sm:wd-text-3xl md:wd-text-5xl wd-w-full wd-h-full'>
+        <span class='wd-transform-gpu wd-transition-transform hover:wd-shadow hover:wd-scale-125 wd-grid wd-place-items-center'>
+          Hit me!
+        </span>
+      </a>
+    </figure>
 
-    {{> footer}}
+    {{!-- {{#each context }}
+    <figure class="wd-relative wd-overflow-hidden wd-py-4 wd-px-4 wd-grid wd-place-items-center wd-text-grey1 {{ color }}">
+        <div class="group wd-relative wd-inline-block wd-overflow-hidden" data-animate="{{ @index }}">
+            <span class="wd-font-primary wd-font-bold wd-tracking-tighter wd-leading-tight wd-text-xl sm:wd-text-2xl md:wd-text-3xl xl:wd-text-5xl wd-inline-block wd-overflow-hidden js-animate-text">{{ text }}</span>
+        </div>
+        <a href="#" class="js-click group wd-bg-dark1 wd-py-4 wd-px-4 wd-grid wd-absolute wd-top-0 wd-left-0 wd-z-10 wd-text-xl sm:wd-text-3xl md:wd-text-5xl wd-w-full wd-h-full">
+            <span class="wd-transform-gpu wd-transition-transform hover:wd-shadow hover:wd-scale-125 wd-grid wd-place-items-center">Hit me!</span>
+        </a>
+    </figure>
+    {{/each}} --}}
+  </main>
+  {{> footer}}
 </div>
